@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/icon" href="spotifyIcon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utility.css" />
+    <title>Spotify - Web Player: Music for everyone</title>
+  </head>
+  <body>
+    <div class="container flex bg-black">
+      <div class="left">
+        <div class="close">
+          <img width="30" class="invert" src="img/close.svg" alt="close" />
+        </div>
+        <div class="home bg-grey rounded m-1 p-1">
+          <div class="logo">
+            <img class="invert" width="110" src="img/logo.svg" alt="logo" />
+          </div>
+          <ul>
+            <li class="homePage">
+              <img class="invert" src="img/home.svg" alt="home" />Home
+            </li>
+            <li class="searchPage">
+              <img class="invert" src="img/search.svg" alt="search" />Search
+            </li>
+            <li class="trend">
+              <img class="invert" src="img/trending.svg" alt="trend" />Trending
+            </li>
+          </ul>
+        </div>
+        <div class="library bg-grey rounded m-1">
+          <div class="heading">
+            <img class="invert" src="img/playlist.svg" alt="playlist" />
+            <h2>Your Library</h2>
+          </div>
+
+          <div class="songList">
+            <ul></ul>
+          </div>
+
+          <div class="footer">
+            <div>
+              <a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a>
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/privacy/"
+                ><span>Privacy Center</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/legal/privacy-policy/"
+                ><span>Privacy Policy</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/legal/cookies-policy/"
+                ><span>Cookies</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"
+                ><span>About Ads</span></a
+              >
+            </div>
+            <div>
+              <a href="https://www.spotify.com/jp/accessibility/"
+                ><span>Accessibility</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right bg-grey rounded">
+        <div class="header">
+          <div class="nav">
+            <div class="hamburgerContainer">
+              <img
+                width="40"
+                class="invert hamburger"
+                src="img/hamburger.svg"
+                alt="hamburger"
+              />
+              <input
+                class="searchInput"
+                type="search"
+                placeholder="Search..."
+              />
+              <!-- <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 6L9.70711 11.2929C9.37377 11.6262 9.20711 11.7929 9.20711 12C9.20711 12.2071 9.37377 12.3738 9.70711 12.7071L15 18"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 18L14.2929 12.7071C14.6262 12.3738 14.7929 12.2071 14.7929 12C14.7929 11.7929 14.6262 11.6262 14.2929 11.2929L9 6"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg> -->
+            </div>
+          </div>
+          <div class="buttons">
+            <!-- <button class="signupbtn">Sign up</button> -->
+            <a href="login.html" class="loginbtn">Log in</a>
+          </div>
+        </div>
+        <div class="spotifyPlaylists">
+          <div class="apiPlaylist hide">
+            <!-- <h1>hello</h1> -->
+          </div>
+          <div class="apiSearchResult hide"></div>
+          <div class="localPlaylist">
+            <h1>Spotify Playlists</h1>
+            <div class="cardContainer"></div>
+          </div>
+          <div class="playbar">
+            <div class="seekbar">
+              <div class="circle"></div>
+            </div>
+
+            <div class="abovebar">
+              <div class="songinfo"></div>
+
+              <div class="songButtons">
+                <img
+                  width="35"
+                  id="previous"
+                  src="img/prevsong.svg"
+                  alt="prevsong"
+                />
+                <img width="35" id="play" src="img/play.svg" alt="play" />
+                <img
+                  width="35"
+                  id="next"
+                  src="img/nextsong.svg"
+                  alt="nextsong"
+                />
+              </div>
+
+              <div class="timevol">
+                <div class="songtime"></div>
+                <div class="volume">
+                  <img width="25" src="img/volume.svg" alt="volume" />
+                  <div class="range">
+                    <input type="range" name="volume" id="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar hide">
+            <table class="sidebarTable">
+              <thead>
+                <tr>
+                  <th>Top Charts</th>
+                </tr>
+              </thead>
+              <tbody class="sidebarTableBody">
+                <tr data-src="Top Charts/1.m4a">
+                  <td>1</td>
+                  <td>
+                    <img
+                      src="Top Charts/img01.jpg"
+                      alt="img01"
+                      style="width: 50px; height: 50px; margin-right: 10px"
+                    />
+                  </td>
+                  <td>
+                    <p class="track-name">God Damn</p>
+                    <p>karan Aujla</p>
+                  </td>
+                  <td class="topPlay">
+                    <img src="img/play.svg" alt="" />
+                  </td>
+                </tr>
+
+                <tr data-src="Top Charts/2.m4a">
+                  <td>2</td>
+                  <td>
+                    <img
+                      src="Top Charts/img02.jpg"
+                      alt="img01"
+                      style="width: 50px; height: 50px; margin-right: 10px"
+                    />
+                  </td>
+                  <td>
+                    <p class="track-name">Nazran</p>
+                    <p>Nirvair</p>
+                  </td>
+                  <td class="topPlay">
+                    <img src="img/play.svg" alt="" />
+                  </td>
+                </tr>
+
+                <tr data-src="Top Charts/3.m4a">
+                  <td>3</td>
+                  <td>
+                    <img
+                      src="Top Charts/img03.jpg"
+                      alt="img01"
+                      style="width: 50px; height: 50px; margin-right: 10px"
+                    />
+                  </td>
+                  <td>
+                    <p class="track-name">Nowadays</p>
+                    <p>Khan Bhaini</p>
+                  </td>
+                  <td class="topPlay">
+                    <img src="img/play.svg" alt="" />
+                  </td>
+                </tr>
+
+                <tr data-src="Top Charts/4.m4a">
+                  <td>4</td>
+                  <td>
+                    <img
+                      src="Top Charts/img04.jpg"
+                      alt="img01"
+                      style="width: 50px; height: 50px; margin-right: 10px"
+                    />
+                  </td>
+                  <td>
+                    <p class="track-name">Starboy</p>
+                    <p>Weekend</p>
+                  </td>
+                  <td class="topPlay">
+                    <img src="img/play.svg" alt="" />
+                  </td>
+                </tr>
+
+                <tr data-src="Top Charts/5.m4a">
+                  <td>5</td>
+                  <td>
+                    <img
+                      src="Top Charts/img05.jpg"
+                      alt="img01"
+                      style="width: 50px; height: 50px; margin-right: 10px"
+                    />
+                  </td>
+                  <td>
+                    <p class="track-name">Shape</p>
+                    <p>Ed Sheeran</p>
+                  </td>
+                  <td class="topPlay">
+                    <img src="img/play.svg" alt="" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="topArt">
+              <div>
+                <p style="font-size: 22px; font-weight: bold; margin-top: 38px">
+                  Top Artists
+                </p>
+              </div>
+              <div class="topArtContainer">
+                <div class="topCard">
+                  <img
+                    src="Top Charts/art01.jpg"
+                    alt="Artist Image"
+                    id="37i9dQZF1DX08mhnhv6g9b"
+                  />
+                </div>
+                <div class="topCard">
+                  <img
+                    src="Top Charts/art02.jpg"
+                    alt="Artist Image"
+                    id="37i9dQZF1DWWxPM4nWdhyI"
+                  />
+                </div>
+                <div class="topCard">
+                  <img
+                    src="Top Charts/art03.jpg"
+                    alt="Artist Image"
+                    id="37i9dQZF1DWVylAeNMeLc5"
+                  />
+                </div>
+                <div class="topCard">
+                  <img
+                    src="Top Charts/art04.jpg"
+                    alt="Artist Image"
+                    id="37i9dQZF1DXcISkz62UgzG"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/script.js"></script>
+  <script src="js/script_api.js" type="module"></script>
+  <script src="../login.js" type="module"></script>
+  <!-- <script>
+    let userCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+    console.log(userCreds);
+  </script> -->
+</html>
